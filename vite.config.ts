@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-// Vite config that sets project root to `src` and outputs build to repository `dist`.
+// https://vitejs.dev/config/
 export default defineConfig({
   root: 'src',
   plugins: [react()],
@@ -14,5 +14,13 @@ export default defineConfig({
   build: {
     outDir: '../dist',
     emptyOutDir: true,
+  },
+  css: {
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    },
   },
 })
